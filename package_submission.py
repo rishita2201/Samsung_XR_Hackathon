@@ -51,9 +51,10 @@ def package(team_name: str, src_dir: str = "TEAM_ID"):
                 if f.endswith(".pyc") or f.endswith(".log"):
                     continue
                 fpath = os.path.join(root, f)
-                rel_path = os.path.relpath(fpath, os.path.dirname(src_dir) if os.path.dirname(src_dir) else ".")
+                rel_inside_src = os.path.relpath(fpath, src_dir)
+                arcname = os.path.join(team_name, rel_inside_src).replace("\\", "/")
                 compress_mode = zipfile.ZIP_STORED if f.endswith(".pt") else zipfile.ZIP_DEFLATED
-                z.write(fpath, rel_path, compress_type=compress_mode)
+                z.write(fpath, arcname, compress_type=compress_mode)
 
     size_mb = os.path.getsize(zip_filename) / (1024 * 1024)
     print(f"\n[SUCCESS] Package successfully created: {zip_filename} ({size_mb:.1f} MB)")
