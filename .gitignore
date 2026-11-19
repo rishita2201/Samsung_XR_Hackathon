@@ -1,0 +1,32 @@
+# Environments & Python caches
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# Extracted student package & temporary files
+extracted_student_pkg/
+*.zip
+
+# Model checkpoints (> 100MB exceeds GitHub push limits)
+*.pt
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Large videos / uploads
+uploads/*
+!uploads/synthetic_demo.mp4
+backend/uploads/*
+!backend/uploads/.gitkeep
+outputs/highlights/*
+!outputs/highlights/.gitkeep
+
+# Operating system artifacts
+.DS_Store
+Thumbs.db
+*.log
