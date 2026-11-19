@@ -30,21 +30,35 @@ All pipeline reasoning, motion filtering, temporal boundary estimation, and high
 
 1. **Egocentric Motion Decomposition:**
    * Mathematical formulation of global user head saccade isolation via spatial median vector calculation:
-     $$\vec{v}_{\text{head}} = (\operatorname{median}(\Delta x), \operatorname{median}(\Delta y))$$
-   * Subtraction of $\vec{v}_{\text{head}}$ to isolate the residual manipulation field $\vec{v}_{\text{manip}}(x, y)$, effectively eliminating false highlight spikes caused by user head turns.
+
+   ```math
+   \vec{v}_{\text{head}} = (\text{median}(\Delta x), \text{median}(\Delta y))
+   ```
+
+   * Subtraction of global head velocity `v_head` isolates the residual manipulation field:
+
+   ```math
+   \vec{v}_{\text{manip}}(x, y) = \|\vec{v}(x, y) - \vec{v}_{\text{head}}\|_2
+   ```
+
+   * Effectively eliminates false highlight spikes caused by user head turns and camera sway.
 
 2. **Spatial Hand-Object Interaction (HOI) Filter:**
-   * Novel combination of YCbCr skin chrominance thresholding ($Y \in [80, 240], Cb \in [85, 135], Cr \in [135, 180]$) and foveal Canny edge gradient density focused on the lower manipulation quadrant.
+   * Novel combination of YCbCr skin chrominance thresholding (`Y in [80, 240]`, `Cb in [85, 135]`, `Cr in [135, 180]`) and foveal Canny edge gradient density focused on the lower manipulation quadrant.
    * Suppresses idle gaze, transit, and empty scene exploration without requiring expensive object bounding box anchors.
 
 3. **Temporal Action Localization (TAL):**
    * Cosine distance change-point detection on consecutive CLIP frame embeddings to pinpoint action transitions.
-   * Temporal Intersection-over-Union (tIoU $\ge 0.35$) segment clustering to assemble continuous, coherent action boundaries.
+   * Temporal Intersection-over-Union (tIoU >= 0.35) segment clustering to assemble continuous, coherent action boundaries.
 
 4. **Greedy MMR Highlight Optimizer with Distinct Action Bonus:**
-   * Formulated a novel Distinct Action Bonus ($\beta = 0.40$) inside the Maximal Marginal Relevance objective:
-     $$\arg\max_{s \in \mathcal{U}} \left[ S(s) - \lambda \max_{s' \in \mathcal{S}} \text{Sim}(s, s') + \beta \cdot \mathbf{1}_{[\text{action}(s) \notin \text{actions}(\mathcal{S})]} \right]$$
-   * Explicitly designed to maximize the official **Action Coverage metric (40% jury weight)** while strictly enforcing the $\le 15.0\%$ duration ceiling and $\ge 4.0\text{ s}$ highlight segment constraint.
+   * Formulated a novel Distinct Action Bonus (`β = 0.40`) inside the Maximal Marginal Relevance objective:
+
+   ```math
+   \arg\max_{s \in \mathcal{U}} \left[ S(s) - \lambda \max_{s' \in \mathcal{S}} \text{Sim}(s, s') + \beta \cdot \mathbf{1}_{[\text{action}(s) \notin \text{actions}(\mathcal{S})]} \right]
+   ```
+
+   * Explicitly designed to maximize the official **Action Coverage metric (40% jury weight)** while strictly enforcing the `<= 15.0%` duration ceiling and `>= 4.0 s` highlight segment constraint.
 
 5. **Full-Stack Interactive Studio:**
    * Custom FastAPI backend and React 19 / TypeScript NLE-style timeline editor with real-time budget telemetry, keyframe inspection, and frame-accurate FFmpeg highlight video rendering.

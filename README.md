@@ -71,7 +71,7 @@ flowchart TD
 Standard camera motion vectors are dominated by user head saccades. MOMENTIQ computes dense Farneback optical flow across consecutive sample frame pairs. We compute the spatial median displacement across the frame:
 
 ```math
-\vec{v}_{\text{head}} = (\operatorname{median}(\Delta x), \operatorname{median}(\Delta y))
+\vec{v}_{\text{head}} = (\text{median}(\Delta x), \text{median}(\Delta y))
 ```
 
 The residual manipulation motion field is defined by subtracting the global head velocity:
