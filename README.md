@@ -6,6 +6,8 @@
 > **Challenge:** Samsung R&D Institute India XR Hackathon 2026 — Track 4: Action Aware Video Summarization  
 > **Duration Budget Constraint:** Strictly $\le 15.0\%$ of original video duration  
 > **Supported Benchmarks:** EPIC-KITCHENS-100 (138 validation videos) & FPVSum (49 videos)  
+> **Official Demo Video (with Neural Audio Narration):** [`VITChennai_RRR_Demo_Video.mp4`](VITChennai_RRR_Demo_Video.mp4) (Duration: 2:44 min, Full HD 1080p)  
+> **Submission Presentation Deck:** [`VITChennai_RRR_Submission_ppt.pptx`](VITChennai_RRR_Submission_ppt.pptx)  
 
 ---
 
