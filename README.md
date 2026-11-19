@@ -16,6 +16,7 @@
 > **Official Demo Video (Full HD 1080p with Neural Audio Narration):** [`VITChennai_RRR_Demo_Video.mp4`](VITChennai_RRR_Demo_Video.mp4) (Duration: 2:44 min)  
 > **Official Submission Presentation Deck:** [`VITChennai_RRR_Submission_ppt.pptx`](VITChennai_RRR_Submission_ppt.pptx)  
 > **Validated Submission Archive:** [`VITChennai_RRR.zip`](VITChennai_RRR.zip) (577.3 MB, fully offline with weights)  
+> **Official AI Disclosure:** [`AI_DISCLOSURE.md`](AI_DISCLOSURE.md)  
 > **GitHub Repository:** [https://github.com/rishita2201/Samsung_XR_Hackathon.git](https://github.com/rishita2201/Samsung_XR_Hackathon.git)
 
 ---
