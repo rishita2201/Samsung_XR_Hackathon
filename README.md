@@ -9,8 +9,8 @@
 > - **Rhythm Rastogi** (`24bai1508`) — Optimization & Architecture  
 >
 > **Challenge:** Samsung R&D Institute India XR Hackathon 2026 — Track 4: Action Aware Video Summarization  
-> **Duration Budget Constraint:** Strictly $\le 15.0\%$ of original video duration  
-> **Minimum Highlight Segment Rule:** Each highlight segment $\ge 4.0\text{ s}$  
+> **Duration Budget Constraint:** Strictly <= 15.0% of original video duration  
+> **Minimum Highlight Segment Rule:** Each highlight segment >= 4.0 s  
 > **Supported Benchmarks:** EPIC-KITCHENS-100 (138 validation videos) & FPVSum (49 videos)  
 >
 > **Official Demo Video (Full HD 1080p with Neural Audio Narration):** [`VITChennai_RRR_Demo_Video.mp4`](VITChennai_RRR_Demo_Video.mp4) (Duration: 2:44 min)  
@@ -36,27 +36,27 @@ Capturing video from an extended reality (XR) perspective—such as smart glasse
 
 ```mermaid
 flowchart TD
-    subgraph Ingestion["Module A: Ingestion & Adaptive Sampling"]
-        V[First-Person MP4 Video] --> MP[Probe Duration, FPS, Resolution]
-        MP --> AS[Intelligent 2 FPS Adaptive Sampler]
-        AS --> OF[Farneback Dense Optical Flow]
-        OF --> MC["Global Head Motion Cancellation<br/>(Spatial Median Vector Subtraction)"]
+    subgraph Ingestion["Module A: Ingestion and Adaptive Sampling"]
+        V["First-Person MP4 Video"] --> MP["Probe Duration, FPS, Resolution"]
+        MP --> AS["Intelligent 2 FPS Adaptive Sampler"]
+        AS --> OF["Farneback Dense Optical Flow"]
+        OF --> MC["Global Head Motion Cancellation<br/>Spatial Median Vector Subtraction"]
     end
 
-    subgraph Perception["Modules B & C: Egocentric Perception"]
-        MC --> HOI["Hand-Object Interaction (HOI) Filter<br/>(YCbCr Skin Chrominance + Foveal Canny Edge)"]
-        AS --> CLIP["Pretrained CLIP ViT-B/32 Zero-Shot Classifier<br/>(EPIC 98 Verbs + 301 Nouns / FPVSum 14 Classes)"]
+    subgraph Perception["Modules B and C: Egocentric Perception"]
+        MC --> HOI["Hand-Object Interaction Filter<br/>Skin Chrominance + Foveal Canny Edge"]
+        AS --> CLIP["Pretrained CLIP ViT-B/32 Zero-Shot Classifier<br/>EPIC 98 Verbs + 301 Nouns / FPVSum 14 Classes"]
         HOI --> CLIP
     end
 
-    subgraph Reasoning["Modules D & E: Localization & Scoring"]
-        CLIP --> TAL["Temporal Action Localization (TAL)<br/>(Cosine Distance Change-Points + tIoU Merge)"]
-        TAL --> SCORER["Explainable Multi-Factor Scorer<br/>S = 0.35A + 0.25H + 0.15N + 0.25C - 0.20I"]
+    subgraph Reasoning["Modules D and E: Localization and Scoring"]
+        CLIP --> TAL["Temporal Action Localization<br/>Cosine Distance Change-Points + tIoU Merge"]
+        TAL --> SCORER["Explainable Multi-Factor Scorer<br/>Activity + Interaction + Novelty + Confidence - Idle"]
     end
 
-    subgraph Synthesis["Modules F & G: Highlight Optimization & Render"]
-        SCORER --> MMR["Budget-Constrained MMR Optimizer<br/>Distinct Action Bonus (+0.40) &le; 15% Budget"]
-        MMR --> OUT_JSON["Track 4 Structured JSON<br/>(Strict 6-Key Schema, 187 Targets)"]
+    subgraph Synthesis["Modules F and G: Highlight Optimization and Render"]
+        SCORER --> MMR["Budget-Constrained MMR Optimizer<br/>Distinct Action Bonus (+0.40) within 15 percent Budget"]
+        MMR --> OUT_JSON["Track 4 Structured JSON<br/>Strict 6-Key Schema, 187 Targets"]
         MMR --> FFMPEG["Frame-Accurate FFmpeg Concat Renderer"]
         FFMPEG --> OUT_MP4["Playable 1080p MP4 Highlight"]
     end
@@ -67,33 +67,56 @@ flowchart TD
 ## 3. Mathematical & Algorithmic Highlights
 
 ### A. Egocentric Head Sway Compensation
-Standard camera motion vectors are dominated by user head saccades. MOMENTIQ computes dense Farneback optical flow $(\Delta x, \Delta y)$ across every consecutive sample frame pair. We compute the spatial median displacement across the frame:
-$$\vec{v}_{\text{head}} = (\text{median}(\Delta x), \text{median}(\Delta y))$$
-The residual manipulation motion field is defined as:
-$$\vec{v}_{\text{manip}}(x, y) = \|\vec{v}(x, y) - \vec{v}_{\text{head}}\|_2$$
-High residual motion localized to the lower-central manipulation zone ($Y \in [45\%, 100\%], X \in [20\%, 80\%]$) indicates active tool or hand interaction, filtering out head turns.
+Standard camera motion vectors are dominated by user head saccades. MOMENTIQ computes dense Farneback optical flow across consecutive sample frame pairs. We compute the spatial median displacement across the frame:
+
+```math
+\vec{v}_{\text{head}} = (\operatorname{median}(\Delta x), \operatorname{median}(\Delta y))
+```
+
+The residual manipulation motion field is defined by subtracting the global head velocity:
+
+```math
+\vec{v}_{\text{manip}}(x, y) = \|\vec{v}(x, y) - \vec{v}_{\text{head}}\|_2
+```
+
+High residual motion localized to the lower-central manipulation zone (`Y in [45%, 100%]`, `X in [20%, 80%]`) indicates active tool or hand interaction, filtering out head turns.
 
 ### B. Hand-Object Interaction (HOI) Filter
 To distinguish passive looking from physical manipulation, we compute:
-1. **Skin Chrominance Mask:** $Y \in [80, 240], Cb \in [85, 135], Cr \in [135, 180]$ in the lower manipulation zone.
-2. **Foveal Edge Density:** Canny edge gradient magnitude in the interaction zone.
-$$H(s_i) = \text{SkinRatio}(s_i) \times \text{EdgeDensity}(s_i)$$
+1. **Skin Chrominance Mask:** `Y in [80, 240]`, `Cb in [85, 135]`, `Cr in [135, 180]` in the lower manipulation zone.
+2. **Foveal Edge Density:** Canny edge gradient magnitude in the active interaction zone.
+
+```math
+H(s_i) = \text{SkinRatio}(s_i) \times \text{EdgeDensity}(s_i)
+```
 
 ### C. Explainable Multi-Factor Importance Score
-For each temporal candidate segment $s_i$, the raw importance score is calculated as an explainable convex combination:
-$$S(s_i) = 0.35 \cdot A(s_i) + 0.25 \cdot H(s_i) + 0.15 \cdot N(s_i) + 0.25 \cdot C(s_i) - 0.20 \cdot I(s_i)$$
-- $A(s_i)$: Normalized action dynamism from residual optical flow.
-- $H(s_i)$: Egocentric Hand-Object Interaction score.
-- $N(s_i)$: Visual novelty, measured as Euclidean distance from running feature centroid.
-- $C(s_i)$: CLIP action recognition classification confidence.
-- $I(s_i)$: Idle penalty applied when residual motion falls below threshold.
+For each temporal candidate segment `s_i`, the raw importance score is calculated as an explainable convex combination:
 
-### D. Maximal Marginal Relevance (MMR) under $\le 15\%$ Duration Budget
+```math
+S(s_i) = 0.35 \cdot A(s_i) + 0.25 \cdot H(s_i) + 0.15 \cdot N(s_i) + 0.25 \cdot C(s_i) - 0.20 \cdot I(s_i)
+```
+
+- `A(s_i)`: Normalized action dynamism from residual optical flow.
+- `H(s_i)`: Egocentric Hand-Object Interaction score.
+- `N(s_i)`: Visual novelty, measured as Euclidean distance from running feature centroid.
+- `C(s_i)`: CLIP action recognition classification confidence.
+- `I(s_i)`: Idle penalty applied when residual motion falls below threshold.
+
+### D. Maximal Marginal Relevance (MMR) under <= 15.0% Duration Budget
 To optimize for the **Action Coverage metric (40% weight)**, MOMENTIQ uses greedy MMR selection with a novel distinct action bonus:
-$$\arg\max_{s \in \mathcal{U}} \left[ S(s) - \lambda \max_{s' \in \mathcal{S}} \text{Sim}(s, s') + \beta \cdot \mathbf{1}_{[\text{action}(s) \notin \text{actions}(\mathcal{S})]} \right]$$
+
+```math
+\arg\max_{s \in \mathcal{U}} \left[ S(s) - \lambda \max_{s' \in \mathcal{S}} \text{Sim}(s, s') + \beta \cdot \mathbf{1}_{[\text{action}(s) \notin \text{actions}(\mathcal{S})]} \right]
+```
+
 subject to:
-$$\sum_{s \in \mathcal{S}} \text{duration}(s) \le 0.15 \times \text{Duration}_{\text{total}} \quad \text{and} \quad \forall s \in \mathcal{S}, \, \text{duration}(s) \ge 4.0\text{ s}$$
-Where $\beta = 0.40$ rewards the selection of novel (verb, noun) action pairs rather than repetitive instances of the same activity.
+
+```math
+\sum_{s \in \mathcal{S}} \text{duration}(s) \le 0.15 \times \text{Duration}_{\text{total}} \quad \text{and} \quad \forall s \in \mathcal{S}, \, \text{duration}(s) \ge 4.0\text{ s}
+```
+
+Where `\beta = 0.40` heavily rewards the selection of novel (verb, noun) action pairs rather than repetitive instances of the same activity.
 
 ---
 
@@ -151,10 +174,10 @@ Every processed video generates a corresponding `<video_id>.json` file strictly 
 | :--- | :---: | :--- | :--- |
 | `team_id` | `string` | Non-empty string; must be identical across all submitted files (`VITChennai_RRR`). | Identification |
 | `video_id` | `string` | Non-empty string; must match the filename (`<video_id>.json`) and `manifest.csv`. | Identification |
-| `duration_sec` | `number` | Positive number (`> 0`); within $\pm 0.5\text{ s}$ of the official `manifest.csv` duration. | Budget check |
+| `duration_sec` | `number` | Positive number (`> 0`); within ±0.5 s of the official `manifest.csv` duration. | Budget check |
 | `label` | `object` | `{"name": string, "score": number}` with `score` in `[0, 1]`. Uses `"cooking"` for EPIC videos, or one of 14 FPVSum categories (`bike`, `ski`, `scuba`, etc.). | **Label Accuracy (10%)** |
 | `actions` | `array` | 0–2000 items of `{"segment": [start, end], "verb": string, "noun": string, "score": number}`. `0 <= start < end <= duration_sec + 0.5`. | **Action mAP (25%)** |
-| `highlights` | `array` | Chronologically sorted, strictly non-overlapping, with every segment $\ge 4.0\text{ s}$. Total length $\le 15.0\%$ of `duration_sec`. | **Action Coverage (40%) & Highlight F1 (25%)** |
+| `highlights` | `array` | Chronologically sorted, strictly non-overlapping, with every segment >= 4.0 s. Total length <= 15.0% of `duration_sec`. | **Action Coverage (40%) & Highlight F1 (25%)** |
 
 ---
 
@@ -326,7 +349,7 @@ Samsung_XR_Hackathon/
 │   │   ├── main.py                    # Server entrypoint
 │   │   ├── routes/api_router.py       # REST API endpoints
 │   │   ├── schemas/video_schemas.py   # Pydantic schemas (Official Track 4 contract)
-│   │   ├── services/video_service.py  # Orchestration & caching service
+│   │   ├── services/video_service.py  # Orchestraction & caching service
 │   │   └── pipeline/                  # Modular AI/ML pipeline
 │   │       ├── intelligent_sampler.py # 2 FPS adaptive sampler & Farneback flow
 │   │       ├── hand_object_detector.py# Egocentric HOI skin + edge filter

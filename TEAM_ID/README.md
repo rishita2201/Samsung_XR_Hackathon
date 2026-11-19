@@ -15,7 +15,7 @@
 ### 1. Overview
 This submission package implements the complete, offline, action-aware video summarization pipeline for egocentric (first-person) video datasets including **EPIC-KITCHENS-100** and **FPVSum**.
 
-The system identifies meaningful human actions, detects hand-object interactions (HOI), localizes temporal action boundaries, ranks segments via explainable multi-factor scoring, and produces a concise summary adhering strictly to the **$\le 15.0\%$ duration budget constraint** and the **$\ge 4.0\text{ s}$ minimum highlight segment constraint**.
+The system identifies meaningful human actions, detects hand-object interactions (HOI), localizes temporal action boundaries, ranks segments via explainable multi-factor scoring, and produces a concise summary adhering strictly to the **<= 15.0% duration budget constraint** and the **>= 4.0 s minimum highlight segment constraint**.
 
 ---
 
@@ -94,8 +94,8 @@ python code/batch_run.py --input_dir /path/to/videos --output_dir outputs/ --wei
 An automated validation script is provided to verify that every output file strictly adheres to the official Samsung Track 4 Student Package contract:
 - Validates all 6 required schema keys (`team_id`, `video_id`, `duration_sec`, `label`, `actions`, `highlights`).
 - Validates timestamp ordering and non-overlapping highlight segments.
-- Enforces the highlight duration constraint: $\text{highlight\_duration} \le 0.15 \times \text{duration\_sec}$.
-- Verifies highlight segments are $\ge 4.0\text{ s}$ (official requirement for scored highlights).
+- Enforces the highlight duration constraint: `highlight_duration <= 0.15 * duration_sec`.
+- Verifies highlight segments are `>= 4.0 s` (official requirement for scored highlights).
 
 ```bash
 python validate.py --dir outputs/ --manifest ../datasets/manifest.csv
@@ -131,4 +131,4 @@ python validate.py --dir outputs/ --manifest ../datasets/manifest.csv
 2. **Egocentric Hand-Object Interaction (HOI)**: Combines YCbCr skin chrominance segmentation in manipulation zones with foveal Canny edge density to identify physical manipulation without expensive bounding box anchors.
 3. **Zero-Shot Action Recognition**: Uses CLIP ViT-B/32 prompt ensembles over EPIC-KITCHENS-100 verb and noun taxonomies, paired with visual flow histograms.
 4. **Temporal Action Localization**: Segment boundaries are localized via embedding distance change-point detection and refined with temporal Intersection over Union (tIoU) merging.
-5. **Diversity-Constrained MMR Selection**: Segments are selected using Maximal Marginal Relevance (MMR) with a distinct action bonus (+0.40) to explicitly maximize the **Action Coverage metric (40% weight)** while hard-capping total highlight duration at $\le 15.0\%$ and enforcing $\ge 4.0\text{ s}$ segments.
+5. **Diversity-Constrained MMR Selection**: Segments are selected using Maximal Marginal Relevance (MMR) with a distinct action bonus (+0.40) to explicitly maximize the **Action Coverage metric (40% weight)** while hard-capping total highlight duration at `<= 15.0%` and enforcing `>= 4.0 s` segments.
