@@ -1,0 +1,28 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "synthetic_demo",
+  "duration_sec": 40.0,
+  "label": {
+    "name": "other",
+    "score": 0.28
+  },
+  "actions": [
+    {
+      "segment": [
+        0.0,
+        39.47
+      ],
+      "verb": "empty",
+      "noun": "camera",
+      "score": 0.245
+    }
+  ],
+  "highlights": [
+    {
+      "segment": [
+        25.07,
+        29.33
+      ]
+    }
+  ]
+}

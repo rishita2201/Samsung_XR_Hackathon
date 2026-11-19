@@ -1,0 +1,42 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "Boxing_6kDWXla9bMU",
+  "duration_sec": 345.4,
+  "label": {
+    "name": "boxing",
+    "score": 0.94
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        28.78,
+        36.78
+      ]
+    },
+    {
+      "segment": [
+        86.35,
+        94.35
+      ]
+    },
+    {
+      "segment": [
+        143.92,
+        151.92
+      ]
+    },
+    {
+      "segment": [
+        201.48,
+        209.48
+      ]
+    },
+    {
+      "segment": [
+        259.05,
+        267.05
+      ]
+    }
+  ]
+}

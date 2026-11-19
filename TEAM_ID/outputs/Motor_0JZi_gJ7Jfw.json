@@ -1,0 +1,24 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "Motor_0JZi_gJ7Jfw",
+  "duration_sec": 139.99,
+  "label": {
+    "name": "motor",
+    "score": 0.94
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        23.33,
+        30.33
+      ]
+    },
+    {
+      "segment": [
+        70.0,
+        77.0
+      ]
+    }
+  ]
+}

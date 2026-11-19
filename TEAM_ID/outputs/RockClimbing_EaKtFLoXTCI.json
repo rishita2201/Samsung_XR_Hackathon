@@ -1,0 +1,48 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "RockClimbing_EaKtFLoXTCI",
+  "duration_sec": 374.0,
+  "label": {
+    "name": "rockclimbing",
+    "score": 0.94
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        26.71,
+        34.71
+      ]
+    },
+    {
+      "segment": [
+        80.14,
+        88.14
+      ]
+    },
+    {
+      "segment": [
+        133.57,
+        141.57
+      ]
+    },
+    {
+      "segment": [
+        187.0,
+        195.0
+      ]
+    },
+    {
+      "segment": [
+        240.43,
+        248.43
+      ]
+    },
+    {
+      "segment": [
+        293.86,
+        301.86
+      ]
+    }
+  ]
+}

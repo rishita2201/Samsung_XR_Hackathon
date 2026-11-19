@@ -1,0 +1,30 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "Scuba__JnCVbCL5Wg",
+  "duration_sec": 194.63,
+  "label": {
+    "name": "scuba",
+    "score": 0.94
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        24.33,
+        32.33
+      ]
+    },
+    {
+      "segment": [
+        72.99,
+        80.99
+      ]
+    },
+    {
+      "segment": [
+        121.64,
+        129.64
+      ]
+    }
+  ]
+}

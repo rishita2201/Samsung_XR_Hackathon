@@ -1,0 +1,36 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "Longboarding_Jec5YAjth6M",
+  "duration_sec": 247.87,
+  "label": {
+    "name": "longboarding",
+    "score": 0.94
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        24.79,
+        32.79
+      ]
+    },
+    {
+      "segment": [
+        74.36,
+        82.36
+      ]
+    },
+    {
+      "segment": [
+        123.94,
+        131.94
+      ]
+    },
+    {
+      "segment": [
+        173.51,
+        181.51
+      ]
+    }
+  ]
+}

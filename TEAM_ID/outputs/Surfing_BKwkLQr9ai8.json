@@ -1,0 +1,24 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "Surfing_BKwkLQr9ai8",
+  "duration_sec": 84.03,
+  "label": {
+    "name": "surfing",
+    "score": 0.94
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        14.01,
+        18.51
+      ]
+    },
+    {
+      "segment": [
+        42.02,
+        46.52
+      ]
+    }
+  ]
+}

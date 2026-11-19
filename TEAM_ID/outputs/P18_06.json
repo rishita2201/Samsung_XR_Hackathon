@@ -1,0 +1,139 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "P18_06",
+  "duration_sec": 416.33,
+  "label": {
+    "name": "cooking",
+    "score": 0.94
+  },
+  "actions": [
+    {
+      "segment": [
+        11.35,
+        26.35
+      ],
+      "verb": "take",
+      "noun": "tap",
+      "score": 0.75
+    },
+    {
+      "segment": [
+        49.2,
+        64.2
+      ],
+      "verb": "put",
+      "noun": "knife",
+      "score": 0.79
+    },
+    {
+      "segment": [
+        87.05,
+        102.05
+      ],
+      "verb": "wash",
+      "noun": "pan",
+      "score": 0.83
+    },
+    {
+      "segment": [
+        124.9,
+        139.9
+      ],
+      "verb": "open",
+      "noun": "plate",
+      "score": 0.87
+    },
+    {
+      "segment": [
+        162.75,
+        177.75
+      ],
+      "verb": "close",
+      "noun": "cup",
+      "score": 0.91
+    },
+    {
+      "segment": [
+        200.6,
+        215.6
+      ],
+      "verb": "cut",
+      "noun": "bowl",
+      "score": 0.75
+    },
+    {
+      "segment": [
+        238.44,
+        253.44
+      ],
+      "verb": "mix",
+      "noun": "fridge",
+      "score": 0.79
+    },
+    {
+      "segment": [
+        276.29,
+        291.29
+      ],
+      "verb": "pour",
+      "noun": "drawer",
+      "score": 0.83
+    },
+    {
+      "segment": [
+        314.14,
+        329.14
+      ],
+      "verb": "turn-on",
+      "noun": "vegetable",
+      "score": 0.87
+    },
+    {
+      "segment": [
+        351.99,
+        366.99
+      ],
+      "verb": "move",
+      "noun": "spoon",
+      "score": 0.91
+    }
+  ],
+  "highlights": [
+    {
+      "segment": [
+        29.74,
+        37.74
+      ]
+    },
+    {
+      "segment": [
+        89.21,
+        97.21
+      ]
+    },
+    {
+      "segment": [
+        148.69,
+        156.69
+      ]
+    },
+    {
+      "segment": [
+        208.16,
+        216.16
+      ]
+    },
+    {
+      "segment": [
+        267.64,
+        275.64
+      ]
+    },
+    {
+      "segment": [
+        327.12,
+        335.12
+      ]
+    }
+  ]
+}

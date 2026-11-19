@@ -1,0 +1,91 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "P20_06",
+  "duration_sec": 272.67,
+  "label": {
+    "name": "cooking",
+    "score": 0.94
+  },
+  "actions": [
+    {
+      "segment": [
+        11.69,
+        26.69
+      ],
+      "verb": "take",
+      "noun": "tap",
+      "score": 0.75
+    },
+    {
+      "segment": [
+        50.64,
+        65.64
+      ],
+      "verb": "put",
+      "noun": "knife",
+      "score": 0.79
+    },
+    {
+      "segment": [
+        89.59,
+        104.59
+      ],
+      "verb": "wash",
+      "noun": "pan",
+      "score": 0.83
+    },
+    {
+      "segment": [
+        128.54,
+        143.54
+      ],
+      "verb": "open",
+      "noun": "plate",
+      "score": 0.87
+    },
+    {
+      "segment": [
+        167.5,
+        182.5
+      ],
+      "verb": "close",
+      "noun": "cup",
+      "score": 0.91
+    },
+    {
+      "segment": [
+        206.45,
+        221.45
+      ],
+      "verb": "cut",
+      "noun": "bowl",
+      "score": 0.75
+    }
+  ],
+  "highlights": [
+    {
+      "segment": [
+        27.27,
+        35.27
+      ]
+    },
+    {
+      "segment": [
+        81.8,
+        89.8
+      ]
+    },
+    {
+      "segment": [
+        136.34,
+        144.34
+      ]
+    },
+    {
+      "segment": [
+        190.87,
+        198.87
+      ]
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "video_id": "synthetic_demo",
+  "label": "eating",
+  "actions": [
+    {
+      "verb": "take",
+      "noun": "plate",
+      "start": 0.0,
+      "end": 3.73,
+      "confidence": 0.227
+    },
+    {
+      "verb": "mix",
+      "noun": "drawer",
+      "start": 4.27,
+      "end": 6.93,
+      "confidence": 0.276
+    },
+    {
+      "verb": "take",
+      "noun": "plate",
+      "start": 7.47,
+      "end": 13.87,
+      "confidence": 0.234
+    },
+    {
+      "verb": "mix",
+      "noun": "bowl",
+      "start": 14.4,
+      "end": 18.67,
+      "confidence": 0.232
+    },
+    {
+      "verb": "mix",
+      "noun": "spoon",
+      "start": 25.07,
+      "end": 29.33,
+      "confidence": 0.273
+    },
+    {
+      "verb": "take",
+      "noun": "plate",
+      "start": 29.87,
+      "end": 37.33,
+      "confidence": 0.272
+    }
+  ],
+  "highlights": [
+    {
+      "start": 4.27,
+      "end": 6.93,
+      "importance": 0.861,
+      "action_label": "mix drawer"
+    },
+    {
+      "start": 25.07,
+      "end": 28.37,
+      "importance": 0.813,
+      "action_label": "mix spoon"
+    }
+  ],
+  "duration": 40.0,
+  "highlight_ratio": 0.149
+}

@@ -1,0 +1,41 @@
+{
+  "video_id": "synthetic_demo",
+  "label": "cooking",
+  "duration": 40.0,
+  "actions": [
+    {
+      "verb": "cut",
+      "noun": "vegetable",
+      "start": 5.0,
+      "end": 13.0,
+      "confidence": 0.95
+    },
+    {
+      "verb": "mix",
+      "noun": "ingredient",
+      "start": 17.0,
+      "end": 25.0,
+      "confidence": 0.92
+    },
+    {
+      "verb": "wash",
+      "noun": "plate",
+      "start": 29.0,
+      "end": 37.0,
+      "confidence": 0.90
+    }
+  ],
+  "highlights": [
+    {
+      "start": 6.0,
+      "end": 9.0,
+      "importance": 0.95
+    },
+    {
+      "start": 18.0,
+      "end": 21.0,
+      "importance": 0.92
+    }
+  ]
+}
+

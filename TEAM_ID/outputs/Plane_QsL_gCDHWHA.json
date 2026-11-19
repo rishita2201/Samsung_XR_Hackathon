@@ -1,0 +1,30 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "Plane_QsL_gCDHWHA",
+  "duration_sec": 205.52,
+  "label": {
+    "name": "plane",
+    "score": 0.94
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        25.69,
+        33.69
+      ]
+    },
+    {
+      "segment": [
+        77.07,
+        85.07
+      ]
+    },
+    {
+      "segment": [
+        128.45,
+        136.45
+      ]
+    }
+  ]
+}

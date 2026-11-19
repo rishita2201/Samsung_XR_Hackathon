@@ -1,0 +1,52 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "P04_28",
+  "duration_sec": 158.49,
+  "label": {
+    "name": "cooking",
+    "score": 0.94
+  },
+  "actions": [
+    {
+      "segment": [
+        11.89,
+        26.89
+      ],
+      "verb": "take",
+      "noun": "tap",
+      "score": 0.75
+    },
+    {
+      "segment": [
+        51.51,
+        66.51
+      ],
+      "verb": "put",
+      "noun": "knife",
+      "score": 0.79
+    },
+    {
+      "segment": [
+        91.13,
+        106.13
+      ],
+      "verb": "wash",
+      "noun": "pan",
+      "score": 0.83
+    }
+  ],
+  "highlights": [
+    {
+      "segment": [
+        26.42,
+        34.34
+      ]
+    },
+    {
+      "segment": [
+        79.25,
+        87.17
+      ]
+    }
+  ]
+}

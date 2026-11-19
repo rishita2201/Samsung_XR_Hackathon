@@ -1,0 +1,18 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "Skate_el49s-RlIa4",
+  "duration_sec": 37.34,
+  "label": {
+    "name": "skate",
+    "score": 0.94
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        9.34,
+        13.84
+      ]
+    }
+  ]
+}

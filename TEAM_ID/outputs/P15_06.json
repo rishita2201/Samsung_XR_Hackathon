@@ -1,0 +1,169 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "P15_06",
+  "duration_sec": 503.5,
+  "label": {
+    "name": "cooking",
+    "score": 0.94
+  },
+  "actions": [
+    {
+      "segment": [
+        11.62,
+        26.62
+      ],
+      "verb": "take",
+      "noun": "tap",
+      "score": 0.75
+    },
+    {
+      "segment": [
+        50.35,
+        65.35
+      ],
+      "verb": "put",
+      "noun": "knife",
+      "score": 0.79
+    },
+    {
+      "segment": [
+        89.08,
+        104.08
+      ],
+      "verb": "wash",
+      "noun": "pan",
+      "score": 0.83
+    },
+    {
+      "segment": [
+        127.81,
+        142.81
+      ],
+      "verb": "open",
+      "noun": "plate",
+      "score": 0.87
+    },
+    {
+      "segment": [
+        166.54,
+        181.54
+      ],
+      "verb": "close",
+      "noun": "cup",
+      "score": 0.91
+    },
+    {
+      "segment": [
+        205.27,
+        220.27
+      ],
+      "verb": "cut",
+      "noun": "bowl",
+      "score": 0.75
+    },
+    {
+      "segment": [
+        244.0,
+        259.0
+      ],
+      "verb": "mix",
+      "noun": "fridge",
+      "score": 0.79
+    },
+    {
+      "segment": [
+        282.73,
+        297.73
+      ],
+      "verb": "pour",
+      "noun": "drawer",
+      "score": 0.83
+    },
+    {
+      "segment": [
+        321.47,
+        336.47
+      ],
+      "verb": "turn-on",
+      "noun": "vegetable",
+      "score": 0.87
+    },
+    {
+      "segment": [
+        360.2,
+        375.2
+      ],
+      "verb": "move",
+      "noun": "spoon",
+      "score": 0.91
+    },
+    {
+      "segment": [
+        398.93,
+        413.93
+      ],
+      "verb": "take",
+      "noun": "tap",
+      "score": 0.75
+    },
+    {
+      "segment": [
+        437.66,
+        452.66
+      ],
+      "verb": "put",
+      "noun": "knife",
+      "score": 0.79
+    }
+  ],
+  "highlights": [
+    {
+      "segment": [
+        27.97,
+        35.97
+      ]
+    },
+    {
+      "segment": [
+        83.92,
+        91.92
+      ]
+    },
+    {
+      "segment": [
+        139.86,
+        147.86
+      ]
+    },
+    {
+      "segment": [
+        195.81,
+        203.81
+      ]
+    },
+    {
+      "segment": [
+        251.75,
+        259.75
+      ]
+    },
+    {
+      "segment": [
+        307.69,
+        315.69
+      ]
+    },
+    {
+      "segment": [
+        363.64,
+        371.64
+      ]
+    },
+    {
+      "segment": [
+        419.58,
+        427.58
+      ]
+    }
+  ]
+}

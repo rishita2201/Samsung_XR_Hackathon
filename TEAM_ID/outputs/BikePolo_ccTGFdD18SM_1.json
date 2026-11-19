@@ -1,0 +1,36 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "BikePolo_ccTGFdD18SM_1",
+  "duration_sec": 250.66,
+  "label": {
+    "name": "bike",
+    "score": 0.94
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        25.07,
+        33.07
+      ]
+    },
+    {
+      "segment": [
+        75.2,
+        83.2
+      ]
+    },
+    {
+      "segment": [
+        125.33,
+        133.33
+      ]
+    },
+    {
+      "segment": [
+        175.46,
+        183.46
+      ]
+    }
+  ]
+}

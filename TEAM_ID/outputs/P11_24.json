@@ -1,0 +1,43 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "P11_24",
+  "duration_sec": 83.57,
+  "label": {
+    "name": "cooking",
+    "score": 0.94
+  },
+  "actions": [
+    {
+      "segment": [
+        8.36,
+        23.36
+      ],
+      "verb": "take",
+      "noun": "tap",
+      "score": 0.75
+    },
+    {
+      "segment": [
+        36.21,
+        51.21
+      ],
+      "verb": "put",
+      "noun": "knife",
+      "score": 0.79
+    }
+  ],
+  "highlights": [
+    {
+      "segment": [
+        13.93,
+        18.43
+      ]
+    },
+    {
+      "segment": [
+        41.78,
+        46.28
+      ]
+    }
+  ]
+}

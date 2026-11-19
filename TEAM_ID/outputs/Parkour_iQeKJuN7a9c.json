@@ -1,0 +1,24 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "Parkour_iQeKJuN7a9c",
+  "duration_sec": 123.07,
+  "label": {
+    "name": "parkour",
+    "score": 0.94
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        20.51,
+        26.66
+      ]
+    },
+    {
+      "segment": [
+        61.53,
+        67.68
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "Ski_-Z5a4UQmZLs",
+  "duration_sec": 184.6,
+  "label": {
+    "name": "ski",
+    "score": 0.94
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        23.07,
+        31.07
+      ]
+    },
+    {
+      "segment": [
+        69.22,
+        77.22
+      ]
+    },
+    {
+      "segment": [
+        115.38,
+        123.38
+      ]
+    }
+  ]
+}

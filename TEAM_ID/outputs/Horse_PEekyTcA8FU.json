@@ -1,0 +1,30 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "Horse_PEekyTcA8FU",
+  "duration_sec": 229.13,
+  "label": {
+    "name": "horse",
+    "score": 0.94
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        28.64,
+        36.64
+      ]
+    },
+    {
+      "segment": [
+        85.92,
+        93.92
+      ]
+    },
+    {
+      "segment": [
+        143.21,
+        151.21
+      ]
+    }
+  ]
+}

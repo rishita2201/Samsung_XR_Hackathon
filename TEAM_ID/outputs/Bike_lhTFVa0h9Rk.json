@@ -1,0 +1,36 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "Bike_lhTFVa0h9Rk",
+  "duration_sec": 287.51,
+  "label": {
+    "name": "bike",
+    "score": 0.94
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        28.75,
+        36.75
+      ]
+    },
+    {
+      "segment": [
+        86.25,
+        94.25
+      ]
+    },
+    {
+      "segment": [
+        143.75,
+        151.75
+      ]
+    },
+    {
+      "segment": [
+        201.26,
+        209.26
+      ]
+    }
+  ]
+}

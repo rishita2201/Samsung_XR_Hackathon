@@ -1,0 +1,24 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "Skate_3h8GZNyLpoU",
+  "duration_sec": 136.44,
+  "label": {
+    "name": "skate",
+    "score": 0.94
+  },
+  "actions": [],
+  "highlights": [
+    {
+      "segment": [
+        22.74,
+        29.56
+      ]
+    },
+    {
+      "segment": [
+        68.22,
+        75.04
+      ]
+    }
+  ]
+}

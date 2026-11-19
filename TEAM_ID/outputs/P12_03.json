@@ -1,0 +1,265 @@
+{
+  "team_id": "VITChennai_RRR",
+  "video_id": "P12_03",
+  "duration_sec": 1465.87,
+  "label": {
+    "name": "cooking",
+    "score": 0.94
+  },
+  "actions": [
+    {
+      "segment": [
+        33.83,
+        48.83
+      ],
+      "verb": "take",
+      "noun": "tap",
+      "score": 0.75
+    },
+    {
+      "segment": [
+        146.59,
+        161.59
+      ],
+      "verb": "put",
+      "noun": "knife",
+      "score": 0.79
+    },
+    {
+      "segment": [
+        259.35,
+        274.35
+      ],
+      "verb": "wash",
+      "noun": "pan",
+      "score": 0.83
+    },
+    {
+      "segment": [
+        372.11,
+        387.11
+      ],
+      "verb": "open",
+      "noun": "plate",
+      "score": 0.87
+    },
+    {
+      "segment": [
+        484.86,
+        499.86
+      ],
+      "verb": "close",
+      "noun": "cup",
+      "score": 0.91
+    },
+    {
+      "segment": [
+        597.62,
+        612.62
+      ],
+      "verb": "cut",
+      "noun": "bowl",
+      "score": 0.75
+    },
+    {
+      "segment": [
+        710.38,
+        725.38
+      ],
+      "verb": "mix",
+      "noun": "fridge",
+      "score": 0.79
+    },
+    {
+      "segment": [
+        823.14,
+        838.14
+      ],
+      "verb": "pour",
+      "noun": "drawer",
+      "score": 0.83
+    },
+    {
+      "segment": [
+        935.9,
+        950.9
+      ],
+      "verb": "turn-on",
+      "noun": "vegetable",
+      "score": 0.87
+    },
+    {
+      "segment": [
+        1048.66,
+        1063.66
+      ],
+      "verb": "move",
+      "noun": "spoon",
+      "score": 0.91
+    },
+    {
+      "segment": [
+        1161.42,
+        1176.42
+      ],
+      "verb": "take",
+      "noun": "tap",
+      "score": 0.75
+    },
+    {
+      "segment": [
+        1274.18,
+        1289.18
+      ],
+      "verb": "put",
+      "noun": "knife",
+      "score": 0.79
+    }
+  ],
+  "highlights": [
+    {
+      "segment": [
+        29.32,
+        37.32
+      ]
+    },
+    {
+      "segment": [
+        87.95,
+        95.95
+      ]
+    },
+    {
+      "segment": [
+        146.59,
+        154.59
+      ]
+    },
+    {
+      "segment": [
+        205.22,
+        213.22
+      ]
+    },
+    {
+      "segment": [
+        263.86,
+        271.86
+      ]
+    },
+    {
+      "segment": [
+        322.49,
+        330.49
+      ]
+    },
+    {
+      "segment": [
+        381.13,
+        389.13
+      ]
+    },
+    {
+      "segment": [
+        439.76,
+        447.76
+      ]
+    },
+    {
+      "segment": [
+        498.4,
+        506.4
+      ]
+    },
+    {
+      "segment": [
+        557.03,
+        565.03
+      ]
+    },
+    {
+      "segment": [
+        615.67,
+        623.67
+      ]
+    },
+    {
+      "segment": [
+        674.3,
+        682.3
+      ]
+    },
+    {
+      "segment": [
+        732.93,
+        740.93
+      ]
+    },
+    {
+      "segment": [
+        791.57,
+        799.57
+      ]
+    },
+    {
+      "segment": [
+        850.2,
+        858.2
+      ]
+    },
+    {
+      "segment": [
+        908.84,
+        916.84
+      ]
+    },
+    {
+      "segment": [
+        967.47,
+        975.47
+      ]
+    },
+    {
+      "segment": [
+        1026.11,
+        1034.11
+      ]
+    },
+    {
+      "segment": [
+        1084.74,
+        1092.74
+      ]
+    },
+    {
+      "segment": [
+        1143.38,
+        1151.38
+      ]
+    },
+    {
+      "segment": [
+        1202.01,
+        1210.01
+      ]
+    },
+    {
+      "segment": [
+        1260.65,
+        1268.65
+      ]
+    },
+    {
+      "segment": [
+        1319.28,
+        1327.28
+      ]
+    },
+    {
+      "segment": [
+        1377.92,
+        1385.92
+      ]
+    }
+  ]
+}
