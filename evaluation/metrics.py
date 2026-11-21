@@ -103,36 +103,44 @@ def compute_action_coverage(
     budget_cap: float = 0.15
 ) -> float:
     """Computes Action Coverage (40% official weight):
-    Fraction of distinct ground truth (verb, noun) action pairs captured by highlights.
+    Per official Samsung Hackathon clarification:
+    'An action is captured if at least 50% of its duration falls inside the union of all your highlights.
+     The verb and noun label do not need to match — only the time matters.'
     Soft penalty is applied if highlights exceed the 15% budget."""
     if not ground_truth_actions:
         return 1.0
 
-    distinct_gt_pairs = set(
-        (str(gt.get("verb", "")).strip().lower(), str(gt.get("noun", "")).strip().lower())
-        for gt in ground_truth_actions
-    )
-    if not distinct_gt_pairs:
-        return 1.0
+    # Build merged union of predicted highlight intervals
+    highlight_spans = [_extract_span(h) for h in highlights]
+    highlight_spans = [(s, e) for s, e in highlight_spans if e > s]
+    highlight_spans.sort(key=lambda x: x[0])
 
-    captured_pairs = set()
+    merged_highlights = []
+    for s, e in highlight_spans:
+        if merged_highlights and s <= merged_highlights[-1][1]:
+            merged_highlights[-1] = (merged_highlights[-1][0], max(merged_highlights[-1][1], e))
+        else:
+            merged_highlights.append((s, e))
 
+    captured_count = 0
     for gt in ground_truth_actions:
-        gt_pair = (str(gt.get("verb", "")).strip().lower(), str(gt.get("noun", "")).strip().lower())
         gt_start, gt_end = _extract_span(gt)
+        gt_dur = max(1e-4, gt_end - gt_start)
 
-        # Check if any highlight interval overlaps this action instance
-        for h in highlights:
-            h_start, h_end = _extract_span(h)
-            overlap = max(0.0, min(gt_end, h_end) - max(gt_start, h_start))
-            if overlap >= 0.5:  # At least 0.5s overlap
-                captured_pairs.add(gt_pair)
-                break
+        # Calculate overlap duration of this action with the union of all highlights
+        overlap_dur = 0.0
+        for h_start, h_end in merged_highlights:
+            ov = max(0.0, min(gt_end, h_end) - max(gt_start, h_start))
+            overlap_dur += ov
 
-    raw_coverage = len(captured_pairs) / len(distinct_gt_pairs)
+        # An action is captured if >= 50% of its duration is within the union of highlights
+        if overlap_dur >= 0.50 * gt_dur:
+            captured_count += 1
+
+    raw_coverage = captured_count / len(ground_truth_actions)
 
     # Calculate budget penalty if highlights exceed 15%
-    total_highlight_time = sum(_extract_span(h)[1] - _extract_span(h)[0] for h in highlights)
+    total_highlight_time = sum(e - s for s, e in merged_highlights)
     allowed_time = budget_cap * video_duration
     if total_highlight_time > allowed_time + 1e-4:
         overage_ratio = (total_highlight_time - allowed_time) / allowed_time
