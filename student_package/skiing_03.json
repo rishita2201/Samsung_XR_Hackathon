@@ -1,0 +1,49 @@
+﻿{
+    "team_id":  "T07",
+    "video_id":  "skiing_03",
+    "duration_sec":  258,
+    "label":  {
+                  "name":  "ski",
+                  "score":  0.91
+              },
+    "actions":  [
+                    {
+                        "segment":  [
+                                        4,
+                                        30.5
+                                    ],
+                        "verb":  "other",
+                        "noun":  "other",
+                        "score":  0.58
+                    },
+                    {
+                        "segment":  [
+                                        88,
+                                        104
+                                    ],
+                        "verb":  "other",
+                        "noun":  "other",
+                        "score":  0.62
+                    }
+                ],
+    "highlights":  [
+                       {
+                           "segment":  [
+                                           21,
+                                           33
+                                       ]
+                       },
+                       {
+                           "segment":  [
+                                           140,
+                                           152
+                                       ]
+                       },
+                       {
+                           "segment":  [
+                                           220,
+                                           233
+                                       ]
+                       }
+                   ]
+}
